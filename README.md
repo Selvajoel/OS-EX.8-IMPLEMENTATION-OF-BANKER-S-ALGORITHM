@@ -1,61 +1,83 @@
-OS-EX.8-IMPLEMENTATION-OF-BANKER-S-ALGORITHM
-AIM:
-To implement the bankers Algorithm
-ALGORITHM:
+# OS-EX.8-IMPLEMENTATION-OF-BANKER-S-ALGORITHM
+
+## AIM:
+    To implement the bankers Algorithm
+
+## ALGORITHM:
+
 Step 1: Initialize Data
 
-Set n to 5 (number of processes) and m to 3 (number of resource types).
+1. Set n to 5 (number of processes) and m to 3 (number of resource types).
 
-Initialize the alloc matrix with the allocation of resources to processes.
 
-Initialize the max matrix with the maximum demand of resources for each process.
+2. Initialize the alloc matrix with the allocation of resources to processes.
 
-Initialize the avail list with the available resources.
 
-Initialize arrays f, ans, and ind to manage process states and safe sequence.
+3. Initialize the max matrix with the maximum demand of resources for each process.
+
+
+4. Initialize the avail list with the available resources.
+
+
+5. Initialize arrays f, ans, and ind to manage process states and safe sequence.
 
 Step 2: Initialize Flags and Need Matrix
 
-Initialize the array f to keep track of whether each process is finished (all initially set to 0).
 
-Create an empty matrix need to represent the resource needs of each process.
+1. Initialize the array f to keep track of whether each process is finished (all initially set to 0).
+
+  
+2. Create an empty matrix need to represent the resource needs of each process.
 
 Step 3: Calculate Need Matrix
 
-Calculate the need matrix by subtracting the alloc matrix from the max matrix for each process and resource.
+1. Calculate the need matrix by subtracting the alloc matrix from the max matrix for each process and resource.
+
 Step 4: Main Loop
+1. Loop k from 0 to 4 (5 iterations, one for each process).
 
-Loop k from 0 to 4 (5 iterations, one for each process).
+2. Inside the loop:
 
-Inside the loop:
 
-Loop through each process i (0 to 4).
+3. Loop through each process i (0 to 4).
 
-Check if process i is not finished (f[i] == 0).
 
-Initialize flag to 0.
+4. Check if process i is not finished (f[i] == 0).
 
-Loop through each resource type j (0 to 2).
 
-Check if the resource need of process i for resource j exceeds the available resource avail[j].
+5. Initialize flag to 0.
 
-If it does, set flag to 1 and break out of the inner loop.
 
-If flag is still 0 (i.e., all resource needs are satisfied), add process i to the ans array and increment ind.
+6. Loop through each resource type j (0 to 2).
 
-Update the available resources by adding the allocated resources of process i to avail.
 
-Mark process i as finished by setting f[i] to 1.
+7. Check if the resource need of process i for resource j exceeds the available resource avail[j].
+
+
+8. If it does, set flag to 1 and break out of the inner loop.
+
+
+9. If flag is still 0 (i.e., all resource needs are satisfied), add process i to the ans array and increment ind.
+
+
+10. Update the available resources by adding the allocated resources of process i to avail.
+
+
+11. Mark process i as finished by setting f[i] to 1.
 
 Step 5: Print the SAFE Sequence
 
-Print "Following is the SAFE Sequence" as a header.
+1. Print "Following is the SAFE Sequence" as a header.
 
-Loop through the processes in the ans array and print them as the safe sequence, separated by " -> ".
 
-Print the last process in the sequence.
+2. Loop through the processes in the ans array and print them as the safe sequence, separated by " -> ".
 
-PROGRAM:
+
+3. Print the last process in the sequence.
+
+
+## PROGRAM:
+```
 n = 5
 m = 3
 
@@ -102,8 +124,10 @@ for i in range(n - 1):
 print(" P", ans[n - 1], sep="")
 
 
-OUTPUT:
-image
+```
+## OUTPUT:
+![image](https://github.com/silambarasan2004/OS-EX.8-IMPLEMENTATION-OF-BANKER-S-ALGORITHM/assets/119559917/0c19c1f5-d5a5-45b4-b8cc-a0bca068e09b)
 
-RESULT:
+## RESULT:
+
 Thus the program for the bankers algorithm is implemented successfully.
